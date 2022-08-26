@@ -15,7 +15,8 @@ How to get visualization of LoF mutations:
 4) For statisiacal tests use LoF_tool_statistical_validation.py with the relevant function.
 
 Running PWAS with new hypotheses for scoring LoF mutations:
-1) Follow steps 1-2 in the README in this repository: https://github.com/nadavbra/pwas
-2) Choose hypothesis from update_firm_score.py (or add a new hypothesis with the same contruct to this file) and run the relevant function.
-3) Follow steps 3-4 in the README in this repository: https://github.com/nadavbra/pwas
-4) To compare the results to the Open Targets data run plot_new_discovered_genes() from compare_new_pwas_results_to_GT.py
+1) Clone this repository.
+2) Follow steps 1-2 in the README in this repository: https://github.com/nadavbra/pwas
+3) Choose hypothesis from update_firm_score.py (or add a new hypothesis with the same contruct to this file) and run the relevant function.
+4) Follow steps 3-4 in the README in this repository: https://github.com/nadavbra/pwas
+5) To compare the results to the Open Targets data run plot_new_discovered_genes() from compare_new_pwas_results_to_GT.py
