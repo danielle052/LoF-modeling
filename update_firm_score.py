@@ -37,28 +37,28 @@ def relative_pos_hypothesis(genes):
         variants_with_relative_position.drop(['relative_pos'], axis=1).to_csv(file_path, index=False)
 
 
-def bins_hypothesis(genes):
+def bins_hypothesis(genes, new_scores):
     for gene in genes:
         variants_with_relative_position = pd.read_csv(gene)
         lof_variants = variants_with_relative_position[variants_with_relative_position['effect_score'] < 0.2][
             'relative_pos'].dropna()
-        lof_variants_first_bin = lof_variants[lof_variants < 0.2].apply(lambda x: 0)
+        lof_variants_first_bin = lof_variants[lof_variants < 0.2].apply(lambda x: new_scores[0])
         if len(lof_variants_first_bin):
             variants_with_relative_position['effect_score'].update(lof_variants_first_bin)
 
-        lof_variants_second_bin = lof_variants[(lof_variants >= 0.2) & (lof_variants < 0.4)].apply(lambda x: 0.1)
+        lof_variants_second_bin = lof_variants[(lof_variants >= 0.2) & (lof_variants < 0.4)].apply(lambda x: new_scores[1])
         if len(lof_variants_second_bin):
             variants_with_relative_position['effect_score'].update(lof_variants_second_bin)
 
-        lof_variants_third_bin = lof_variants[(lof_variants >= 0.4) & (lof_variants < 0.6)].apply(lambda x: 0.2)
+        lof_variants_third_bin = lof_variants[(lof_variants >= 0.4) & (lof_variants < 0.6)].apply(lambda x: new_scores[2])
         if len(lof_variants_third_bin):
             variants_with_relative_position['effect_score'].update(lof_variants_third_bin)
 
-        lof_variants_fourth_bin = lof_variants[(lof_variants >= 0.6) & (lof_variants < 0.8)].apply(lambda x: 0.3)
+        lof_variants_fourth_bin = lof_variants[(lof_variants >= 0.6) & (lof_variants < 0.8)].apply(lambda x: new_scores[3])
         if len(lof_variants_fourth_bin):
             variants_with_relative_position['effect_score'].update(lof_variants_fourth_bin)
 
-        lof_variants_fith_bin = lof_variants[(lof_variants >= 0.8) & (lof_variants <= 1)].apply(lambda x: 0.4)
+        lof_variants_fith_bin = lof_variants[(lof_variants >= 0.8) & (lof_variants <= 1)].apply(lambda x: new_scores[4])
         if len(lof_variants_fith_bin):
             variants_with_relative_position['effect_score'].update(lof_variants_fith_bin)
         file_name = ntpath.basename(gene)
@@ -69,4 +69,5 @@ def bins_hypothesis(genes):
 genes = parse_data()
 # sigmoid_hypothesis(genes)
 # relative_pos_hypothesis(genes)
-# bins_hypothesis(genes)
+# bins_hypothesis(genes, [0, 0.1, 0.2, 0.3, 0.4])
+# bins_hypothesis(genes, [0, 0.3, 0.5, 0.7, 0.9])
