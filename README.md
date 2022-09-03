@@ -3,10 +3,8 @@ This repository contains:
 1) LoF_preprocess.py- the script that creates the data for LoF visualizations.
 2) LoF_tool_statistical_validation.py- in this script, we test if LoF relative positions on the gene correlate with phenotypes.
 3) LoF_visualization.py- visualizes different LoF variants.
-4) compare_new_pwas_results_to_GT.py- compares the new PWAS results (after the scores have been updated) with the ground truth.
-5) gene_parser.py- creates a dictionary of all genes associated with a specific disease according to PWAS.
-6) parse_open_target_data.py- script for retrieving and parsing open targets data.
-7) update_firm_score.py- updates FIRM scores by different hypotheses. 
+4) gene_parser.py- creates a dictionary of all genes associated with a specific disease according to PWAS.
+5) README
 
 How to get visualization of LoF mutations:
 1) Clone this repository
